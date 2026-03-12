@@ -1,11 +1,11 @@
-# @philiprehberger/next-image-components
+# @philiprehberger/ts-next-image-components
 
 Next.js Image wrappers with skeleton loading and error fallback.
 
 ## Installation
 
 ```bash
-npm install @philiprehberger/next-image-components clsx
+npm install @philiprehberger/ts-next-image-components clsx
 ```
 
 ## Components
@@ -18,7 +18,7 @@ Drop-in replacement for `next/image` with:
 - Automatic fallback on error
 
 ```tsx
-import { OptimizedImage } from '@philiprehberger/next-image-components';
+import { OptimizedImage } from '@philiprehberger/ts-next-image-components';
 
 <OptimizedImage
   src="/photos/hero.jpg"
