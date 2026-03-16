@@ -1,6 +1,6 @@
 {
   "name": "@philiprehberger/next-image-components",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Next.js Image wrappers with skeleton loading and error fallback",
   "type": "module",
   "main": "./dist/index.cjs",
