@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/next-image-components.svg)](https://www.npmjs.com/package/@philiprehberger/next-image-components)
 [![License](https://img.shields.io/github/license/philiprehberger/next-image-components)](LICENSE)
 
-Next.js Image wrappers with skeleton loading and error fallback.
+Next.js Image wrappers with skeleton loading and error fallback
 
 ## Installation
 
@@ -12,7 +12,7 @@ Next.js Image wrappers with skeleton loading and error fallback.
 npm install @philiprehberger/next-image-components clsx
 ```
 
-## Components
+## Usage
 
 ### `OptimizedImage`
 
@@ -33,6 +33,12 @@ import { OptimizedImage } from '@philiprehberger/next-image-components';
 />
 ```
 
+
+## API
+
+| Method | Description |
+|--------|-------------|
+| `OptimizedImage` | Next.js Image wrapper with skeleton loading animation, fade-in transition, and error fallback |
 
 ## Development
 
