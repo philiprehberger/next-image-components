@@ -1,8 +1,8 @@
 # @philiprehberger/next-image-components
 
-[![CI](https://github.com/philiprehberger/next-image-components/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/next-image-components/actions/workflows/ci.yml)
+[![CI](https://github.com/philiprehberger/ts-next-image-components/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-next-image-components/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/next-image-components.svg)](https://www.npmjs.com/package/@philiprehberger/next-image-components)
-[![License](https://img.shields.io/github/license/philiprehberger/next-image-components)](LICENSE)
+[![License](https://img.shields.io/github/license/philiprehberger/ts-next-image-components)](LICENSE)
 
 Next.js Image wrappers with skeleton loading and error fallback
 
