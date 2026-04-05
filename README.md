@@ -1,8 +1,8 @@
 # @philiprehberger/next-image-components
 
-[![CI](https://github.com/philiprehberger/next-image-components/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/next-image-components/actions/workflows/ci.yml)
+[![CI](https://github.com/philiprehberger/ts-next-image-components/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-next-image-components/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/next-image-components.svg)](https://www.npmjs.com/package/@philiprehberger/next-image-components)
-[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/next-image-components)](https://github.com/philiprehberger/next-image-components/commits/main)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/ts-next-image-components)](https://github.com/philiprehberger/ts-next-image-components/commits/main)
 
 Next.js Image wrappers with skeleton loading and error fallback
 
@@ -51,11 +51,11 @@ npm test
 
 If you find this project useful:
 
-⭐ [Star the repo](https://github.com/philiprehberger/next-image-components)
+⭐ [Star the repo](https://github.com/philiprehberger/ts-next-image-components)
 
-🐛 [Report issues](https://github.com/philiprehberger/next-image-components/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+🐛 [Report issues](https://github.com/philiprehberger/ts-next-image-components/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
-💡 [Suggest features](https://github.com/philiprehberger/next-image-components/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+💡 [Suggest features](https://github.com/philiprehberger/ts-next-image-components/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
 ❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
 
