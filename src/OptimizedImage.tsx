@@ -9,19 +9,29 @@ export interface OptimizedImageProps extends Omit<ImageProps, 'onLoad' | 'onErro
   showSkeleton?: boolean;
   /** CSS class for the outer container */
   containerClassName?: string;
+  /**
+   * Base64 data URL used as a blur-up placeholder. When provided, the
+   * underlying `next/image` is rendered with `placeholder="blur"` and
+   * the skeleton overlay is suppressed unless `showSkeleton` is forced on.
+   * Callers may still override `placeholder` explicitly via props.
+   */
+  blurDataURL?: string;
 }
 
 /**
- * Next.js Image wrapper with skeleton loading animation and error fallback.
- * Fades in the image once loaded and falls back to a placeholder on error.
+ * Next.js Image wrapper with skeleton loading animation, blur-up placeholder
+ * support, and error fallback. Fades in the image once loaded and falls back
+ * to a placeholder on error.
  */
 export function OptimizedImage({
   src,
   alt,
   fallbackSrc = '/images/placeholder.svg',
-  showSkeleton = true,
+  showSkeleton,
   className,
   containerClassName,
+  blurDataURL,
+  placeholder,
   ...props
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,9 +39,15 @@ export function OptimizedImage({
 
   const imageSrc = hasError ? fallbackSrc : src;
 
+  // If a blurDataURL is provided and the caller did not override placeholder,
+  // render with placeholder="blur" and disable the skeleton overlay by default.
+  const resolvedPlaceholder = placeholder ?? (blurDataURL ? 'blur' : undefined);
+  const hasBlur = resolvedPlaceholder === 'blur' && Boolean(blurDataURL);
+  const skeletonEnabled = showSkeleton ?? !hasBlur;
+
   return (
     <div className={clsx('relative overflow-hidden', containerClassName)}>
-      {showSkeleton && isLoading && (
+      {skeletonEnabled && isLoading && (
         <div
           className="absolute inset-0 bg-gray-200 dark:bg-gray-800 animate-pulse"
           aria-hidden="true"
@@ -45,6 +61,8 @@ export function OptimizedImage({
           isLoading ? 'opacity-0' : 'opacity-100',
           className
         )}
+        {...(resolvedPlaceholder ? { placeholder: resolvedPlaceholder } : {})}
+        {...(blurDataURL ? { blurDataURL } : {})}
         onLoad={() => setIsLoading(false)}
         onError={() => {
           setHasError(true);

@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/next-image-components.svg)](https://www.npmjs.com/package/@philiprehberger/next-image-components)
 [![Last updated](https://img.shields.io/github/last-commit/philiprehberger/ts-next-image-components)](https://github.com/philiprehberger/ts-next-image-components/commits/main)
 
-Next.js Image wrappers with skeleton loading and error fallback
+Next.js Image wrappers with skeleton loading, blur-up placeholders, and error fallback
 
 ## Installation
 
@@ -14,14 +14,20 @@ npm install @philiprehberger/next-image-components clsx
 
 ## Usage
 
-### `OptimizedImage`
+```ts
+import { OptimizedImage } from '@philiprehberger/next-image-components';
 
-Drop-in replacement for `next/image` with:
-- Skeleton pulse animation while loading
-- Fade-in transition on load
-- Automatic fallback on error
+<OptimizedImage
+  src="/photos/hero.jpg"
+  alt="Hero image"
+  width={800}
+  height={400}
+/>
+```
 
-```tsx
+### Skeleton + error fallback
+
+```ts
 import { OptimizedImage } from '@philiprehberger/next-image-components';
 
 <OptimizedImage
@@ -33,11 +39,53 @@ import { OptimizedImage } from '@philiprehberger/next-image-components';
 />
 ```
 
+### Blur-up placeholder
+
+Provide a base64 data URL via `blurDataURL` to render a low-resolution
+preview while the full image loads. The skeleton overlay is suppressed
+automatically when a blur preview is supplied.
+
+```ts
+import { OptimizedImage } from '@philiprehberger/next-image-components';
+
+<OptimizedImage
+  src="/photos/hero.jpg"
+  alt="Hero image"
+  width={800}
+  height={400}
+  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+/>
+```
+
+To force the skeleton on top of the blur, pass `showSkeleton`:
+
+```ts
+<OptimizedImage
+  src="/photos/hero.jpg"
+  alt="Hero image"
+  width={800}
+  height={400}
+  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..."
+  showSkeleton
+/>
+```
+
 ## API
 
-| Method | Description |
-|--------|-------------|
-| `OptimizedImage` | Next.js Image wrapper with skeleton loading animation, fade-in transition, and error fallback |
+### `OptimizedImage`
+
+Drop-in replacement for `next/image` with skeleton, blur-up, fade-in, and error fallback.
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `src` | `ImageProps['src']` | required | Source URL or imported image |
+| `alt` | `string` | required | Alt text for the image |
+| `fallbackSrc` | `string` | `/images/placeholder.svg` | Image to render when the primary src fails |
+| `showSkeleton` | `boolean` | `true` (no blur) / `false` (with blur) | Show a pulse skeleton while loading |
+| `containerClassName` | `string` | `undefined` | CSS class on the outer wrapping `div` |
+| `blurDataURL` | `string` | `undefined` | Base64 data URL used as a blur-up placeholder |
+| `placeholder` | `'blur' \| 'empty' \| string` | `'blur'` if `blurDataURL` is set, else inherited from `next/image` | Override `next/image`'s placeholder mode |
+| ...rest | `ImageProps` | — | Any other prop accepted by `next/image` |
 
 ## Development
 

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.2.0 (2026-04-27)
+- Add `blurDataURL` prop for blur-up placeholder previews on `OptimizedImage`
+
 ## 0.1.8
 
 - Fix README GitHub URLs to use correct repo name (ts-next-image-components)

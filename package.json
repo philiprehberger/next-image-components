@@ -1,7 +1,7 @@
 {
   "name": "@philiprehberger/next-image-components",
-  "version": "0.1.8",
-  "description": "Next.js Image wrappers with skeleton loading and error fallback",
+  "version": "0.2.0",
+  "description": "Next.js Image wrappers with skeleton loading, blur-up placeholders, and error fallback",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -47,7 +47,9 @@
     "image",
     "optimized",
     "skeleton",
-    "fallback"
+    "fallback",
+    "blur",
+    "placeholder"
   ],
   "license": "MIT",
   "repository": {
